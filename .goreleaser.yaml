@@ -11,6 +11,13 @@ builds:
     main: ./cmd/bk
     ldflags:
       - -s -w -X github.com/buildkite/cli/v3/internal/build.Version={{.Version}}
+  - id: deb
+    goos: [linux]
+    goarch: [amd64, arm64]
+    binary: bin/bk
+    main: ./cmd/bk
+    ldflags:
+      - -s -w -X github.com/buildkite/cli/v3/internal/build.Version={{.Version}}
 
 archives:
   - id: macos-archive
@@ -21,4 +28,11 @@ archives:
     files:
       - LICENSE.md
 
+nfpms:
+  - id: debian
+    builds:
+      - deb
+    formats:
+      - deb
+      - apk
 # vim: set ts=2 sw=2 tw=0 fo=cnqoj
