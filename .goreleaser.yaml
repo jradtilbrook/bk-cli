@@ -1,6 +1,9 @@
 project_name: bk
 
 release:
+  github:
+    owner: jradtilbrook
+    name: bk-cli
   name_template: Buildkite CLI {{.Version}}
   draft: true
   replace_existing_draft: true
